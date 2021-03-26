@@ -8,9 +8,11 @@ var mapa = {
   cargaOk: false,
 };
 
-function Animal(ruta, cargaOk) {
-  this.ruta = ruta;
-  this.cargaOk = cargaOk;
+class Animal {
+  constructor(ruta, cargaOk) {
+    this.ruta = ruta;
+    this.cargaOk = cargaOk;
+  }
 }
 
 mapa.imagen = new Image();
