@@ -1,6 +1,6 @@
 var lienzo = document.getElementById("lienzo");
 var papel = lienzo.getContext("2d");
-var cantidad = random(0, 20);
+var cantidad = random(1, 30);
 console.log(cantidad);
 
 class Assets {
@@ -17,30 +17,27 @@ imagenes["mapa"] = "img/tile.png";
 imagenes["pollo"] = "img/pollo.png";
 imagenes["vaca"] = "img/vaca.png";
 
-var mapa = new Assets("mapa", false);
 var colection = [];
-colection.push(mapa);
+colection.push(new Assets("mapa", false));
 colection.push(new Assets("pollo", false));
 colection.push(new Assets("vaca", false));
 
 for (var element of colection) {
+  console.log(element.nombre);
   element.imagen.addEventListener("load", cargarImage);
-  console.log(element);
-}
-function cargarImage() {
-  element.cargaOk = true;
-  dibujar();
-}
 
-function dibujar() {
-  if (mapa.cargaOk) {
-    papel.drawImage(mapa.imagen, 0, 0);
+  function cargarImage() {
+    element.cargaOk = true;
+    dibujar();
   }
-  if (element.cargaOk) {
-    for (i = 0; i < cantidad; i++) {
-      var position_x = random(0, 420);
-      var position_y = random(0, 420);
-      papel.drawImage(element.imagen, position_x, position_y);
+
+  function dibujar() {
+    if (element.cargaOk) {
+      for (i = 0; i < cantidad; i++) {
+        var position_x = random(0, 420);
+        var position_y = random(0, 420);
+        papel.drawImage(element.imagen, position_x, position_y);
+      }
     }
   }
 }

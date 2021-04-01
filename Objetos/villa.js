@@ -3,28 +3,24 @@ var papel = lienzo.getContext("2d");
 var cantidad = random(0, 20);
 console.log(cantidad);
 
-var mapa = {
-  ruta: "img/tile.png",
-  cargaOk: false,
-};
-
-class Animal {
+class Assets {
   constructor(ruta, cargaOk) {
     this.ruta = ruta;
     this.cargaOk = cargaOk;
   }
 }
 
+var mapa = new Assets("img/tile.png", false);
 mapa.imagen = new Image();
 mapa.imagen.src = mapa.ruta;
 mapa.imagen.addEventListener("load", cargarMapa);
 
-var cerdo = new Animal("img/cerdo.png", false);
+var cerdo = new Assets("img/cerdo.png", false);
 cerdo.imagen = new Image();
 cerdo.imagen.src = cerdo.ruta;
 cerdo.imagen.addEventListener("load", cargarCerdo);
 
-var vaca = new Animal("img/vaca.png", false);
+var vaca = new Assets("img/vaca.png", false);
 vaca.imagen = new Image();
 vaca.imagen.src = vaca.ruta;
 vaca.imagen.addEventListener("load", cargarVaca);
@@ -68,7 +64,7 @@ function random(min, max) {
   return aleatorio;
 }
 
-/*
+/* FORMAS DE CREAR OBJETOS EN JS
 // Object() constructor.
 var name = "sol";
 var edad = 20;
